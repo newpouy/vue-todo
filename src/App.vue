@@ -14,6 +14,7 @@
     </v-app-bar>
 
     <v-main>
+      <v-icon>fas fa-lock</v-icon>
       <TodoInput/>
       <TodoList/>
       <TodoFooter/>
