@@ -14,7 +14,9 @@
     </v-app-bar>
 
     <v-main>
-      <!--  -->
+      <TodoInput/>
+      <TodoList/>
+      <TodoFooter/>
     </v-main>
   </v-app>
 </template>
@@ -22,8 +24,17 @@
 <script>
 // import {mapGetters, mapActions} from 'vuex'
 
+import TodoInput from './components/TodoInput.vue'
+import TodoList from './components/TodoList.vue'
+import TodoFooter from './components/TodoFooter.vue'
+
 export default {
-    data: () => ({ drawer: null }),
+  components: {
+    TodoInput,
+    TodoList,
+    TodoFooter
+  },
+  data: () => ({ drawer: null }),
 }
 </script>
 
