@@ -5,7 +5,6 @@
         <v-checkbox
           :input-value="todo.checked"
           color="primary"
-          @click="checkTodo(todo.id)"
         ></v-checkbox>
       </v-list-item-action>
       <v-list-item-content>
@@ -17,10 +16,11 @@
 </template>
 
 <script>
-import localStorageApi from '../api/localStorage'
+// import localStorageApi from '../api/localStorage'
 
 export default {
   name: "TodoList",
+  props: ['todos'],
   data() {
     return {
       todosOld: [
@@ -29,28 +29,28 @@ export default {
       ]
     }
   },
-  computed: {
-    todos: {
-      get() {
-        const todos = localStorageApi.getTodos()
-        console.log(JSON.parse(todos), 'in todolist computed')
-        return JSON.parse(todos)
-      },
-      set() {}
-    }
-  },
+  // computed: {
+  //   todos: {
+  //     get() {
+  //       const todos = localStorageApi.getTodos()
+  //       console.log(JSON.parse(todos), 'in todolist computed')
+  //       return JSON.parse(todos)
+  //     },
+  //     set() {}
+  //   }
+  // },
   methods: {
-    checkTodo(id) {
-      console.log('checkkkkkk')
-      this.todos = this.todos.map(todo => {
-        console.log(todo)
-        if(todo.id == id) {
-          todo.checked = !todo.checked
-        }
-        return todo
-      })
-      console.log(this.todos)
-    }
+    // checkTodo(id) {
+    //   console.log('checkkkkkk')
+    //   this.todos = this.todos.map(todo => {
+    //     console.log(todo)
+    //     if(todo.id == id) {
+    //       todo.checked = !todo.checked
+    //     }
+    //     return todo
+    //   })
+    //   console.log(this.todos)
+    // }
   },
 }
 </script>

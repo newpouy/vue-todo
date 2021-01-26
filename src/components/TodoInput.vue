@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import localStorageApi from '../api/localStorage'
+// import localStorageApi from '../api/localStorage'
 export default {
   name: "TodoInput",
   data() {
@@ -39,10 +39,10 @@ export default {
     async addTodo() {
       console.log('addTodo')
       // localstorage api
-      const result = await localStorageApi.addTodo(this.todoInput)
-      console.log(result)
+      // const result = await localStorageApi.addTodo(this.todoInput)
+      // console.log(result)
       // http api
-      this.$root.$emit('hahaha', this.todoInput)
+      this.$emit('addTodos', this.todoInput)
     },
     clearInput() {
       this.todoInput = ''
