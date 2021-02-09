@@ -1,6 +1,7 @@
 <template>
-<div>TodoList</div>
-
+<div>TodoList
+<p v-for="el in todos" :key="el">{{el}}</p>
+</div>
 </template>
 
 <script>
@@ -16,6 +17,7 @@ export default {
   created() {
     EventBus.$on('write-todo', (payload) => {
       console.log(payload)
+      this.todos.push(payload)
     })
   },
 }
