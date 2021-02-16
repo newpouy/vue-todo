@@ -17,7 +17,10 @@
       <todo-header/>
       <todo-input @write-todo="writeTodo"/>
       <todo-list :proptodos="todos"/>
-      <todo-footer/>
+      <TodoFooter/>
+      <router-link to="/foo">Go to Foo</router-link><br/>
+    <router-link to="/bar">Go to Bar</router-link>
+    <router-view></router-view>
     </v-main>
   </v-app>
 </template>
