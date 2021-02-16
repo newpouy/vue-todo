@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import EventBus from '../EventBus'
+// import EventBus from '../EventBus'
 export default {
     name: "TodoInput",
     data() {
@@ -15,7 +15,7 @@ export default {
     methods: {
         handleKeyup(e) {
             console.log('handleKeyup', e, this.todoInput)
-            if(e.keyCode == 13) EventBus.$emit('write-todo', this.todoInput)
+            if(e.keyCode == 13) this.$emit('write-todo', this.todoInput)
         }
     }
 }

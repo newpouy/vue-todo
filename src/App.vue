@@ -15,8 +15,8 @@
 
     <v-main>
       <todo-header/>
-      <todo-input/>
-      <todo-list/>
+      <todo-input @write-todo="writeTodo"/>
+      <todo-list :proptodos="todos"/>
       <todo-footer/>
     </v-main>
   </v-app>
@@ -37,6 +37,15 @@ export default {
     TodoList,
     TodoFooter,
   },
-  data: () => ({ drawer: null }),
+  data: () => ({ 
+    drawer: null,
+    todos: []
+  }),
+  methods: {
+    writeTodo(todo) {
+      console.log('writeTodo in app.vue', todo)
+      this.todos.push(todo)
+    }
+  },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
 <div>TodoList
-<p v-for="el in todos" :key="el">{{el}}</p>
+<p v-for="el in proptodos" :key="el">{{el}}</p>
 </div>
 </template>
 
@@ -9,6 +9,7 @@ import EventBus from '../EventBus'
 
 export default {
   name: "TodoList",
+  props: ['proptodos'],
   data() {
     return {
       todos: []
