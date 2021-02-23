@@ -16,11 +16,13 @@
     <v-main>
       <todo-header/>
       <todo-input @write-todo="writeTodo"/>
-      <todo-list :proptodos="todos"/>
-      <TodoFooter/>
-      <router-link to="/foo">Go to Foo</router-link><br/>
-    <router-link to="/bar">Go to Bar</router-link>
-    <router-view></router-view>
+      <router-view></router-view>
+      <todo-footer/>
+
+    <!-- <router-link to="/foo">Go to Foo</router-link><br/>
+    <router-link to="/bar">Go to Bar</router-link> -->
+    
+    
     </v-main>
   </v-app>
 </template>
@@ -29,7 +31,6 @@
 import TodoFooter from './components/TodoFooter.vue';
 import TodoHeader from './components/TodoHeader.vue';
 import TodoInput from './components/TodoInput.vue';
-import TodoList from './components/TodoList.vue';
 
 export default {
   name: 'App',
@@ -37,7 +38,6 @@ export default {
   components: {
     TodoHeader,
     TodoInput,
-    TodoList,
     TodoFooter,
   },
   data: () => ({ 
