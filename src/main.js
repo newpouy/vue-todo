@@ -2,13 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router'
-import Vuex from 'vuex'
 import TodoDetail from './components/TodoDetail'
 import TodoList from './components/TodoList'
+import PostList from './components/PostList'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(Vuex)
+import store from './store'
 
 // 1. 라우트 컴포넌트를 정의하세요.
 // 아vue래 내용들은 다른 파일로부터 가져올 수 있습니다.
@@ -24,6 +24,7 @@ const routes = [
   { path: '/', redirect: '/todolist' },
   { path: '/foo', component: Foo },
   { path: '/bar', component: Bar },
+  { path: '/posts', component: PostList },
   { path: '/todolist', component: TodoList },
   { path: '/todo/:id', component: TodoDetail }
 ]
@@ -35,21 +36,7 @@ const router = new VueRouter({
   routes // `routes: routes`의 줄임
 })
 
-const store = new Vuex.Store({
-  state: {
-    todos: []
-  },
-  mutations: {
-    ['ADD_TODO'] (state, todo) {
-      state.todos.push(todo)
-    }
-  },
-  actions: {
-    addTodo ({ commit }, todo) {
-      commit('ADD_TODO', todo)
-    }
-  }
-})
+
 
 new Vue({
   router,
