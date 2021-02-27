@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -30,13 +31,15 @@ const store = new Vuex.Store({
     },
     async getPosts ({ commit, dispatch }) {
       commit('GET_POST_REQUEST')
-      const posts = await dispatch('getPostsRequest')
+      const response = await dispatch('getPostsRequest')
+      console.log(response.data)
+      const posts = response.data
       if(posts) {
         commit('GET_POST_SUCCESS', posts)
       }
     },
     async getPostsRequest() {
-      return await fetch('https://my-json-server.typicode.com/typicode/demo/posts')
+      return await axios.get('https://my-json-server.typicode.com/typicode/demo/posts')
     }
   }
 })
