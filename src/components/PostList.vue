@@ -1,7 +1,8 @@
 <template>
 <div>PostList
-<!-- <p v-for="el in vuex_todos" :key="el" @click="handleClick(el)">{{el}}</p> -->
 <button @click="handleClick">getPost</button>
+<p v-if="posts.onGetRequest">요청중</p>
+<p v-for="el in posts.list" :key="el">{{el.title}}</p>
 </div>
 </template>
 
@@ -19,7 +20,8 @@ export default {
   // },
   computed: {
     ...mapState({
-      vuex_todos: state => state.todos
+      vuex_todos: state => state.todos,
+      posts: state => state.posts
     })
   },
   created() {

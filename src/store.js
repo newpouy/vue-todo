@@ -19,6 +19,7 @@ const store = new Vuex.Store({
       state.posts.onGetRequest = true
     },
     ['GET_POST_SUCCESS'] (state, posts) {
+      state.posts.onGetRequest = false
       state.posts.list = posts
     },
     ['GET_POST_FAILURE'] (state, todo) {
